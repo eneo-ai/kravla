@@ -15,6 +15,7 @@ export * from "./robots";
 export * from "./sitemap";
 export * from "./scope";
 export * from "./canonical-url";
+export * from "./page-identity-url";
 export * from "./file-links";
 export * from "./url-exclusions";
 export * from "./extract";

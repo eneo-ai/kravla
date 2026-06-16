@@ -1,6 +1,6 @@
 {
   "name": "@oddly-even/kravla-service",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Headless HTTP crawl service wrapping @oddly-even/kravla — NDJSON streaming and signed-webhook delivery.",
   "license": "MIT",
   "type": "module",

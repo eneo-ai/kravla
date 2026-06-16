@@ -1,6 +1,6 @@
 {
   "name": "@oddly-even/kravla",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Polite web crawler — Crawlee-based page crawling, sitemap/RSS ingestion, Open ePlatform e-service harvesting, platform detection and content extraction.",
   "license": "MIT",
   "type": "module",

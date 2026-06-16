@@ -28,6 +28,7 @@ import { join } from "node:path";
 import { CheerioCrawler } from "@crawlee/cheerio";
 import { Configuration } from "@crawlee/core";
 import { isInSeedScope, pathPrefixGlobs, sitemapSeedScopeUrl } from "./scope";
+import { normalizeCrawlUrl, resolvePageIdentityUrl } from "./page-identity-url";
 import { extractContent } from "./extract";
 import { runEnrichers } from "./enrichers";
 import { runDetectors, type DetectorMatch } from "./detectors";
@@ -406,6 +407,14 @@ export async function runCrawl(input: CrawlRunnerInput): Promise<CrawlOutcome> {
   const cacheHints = input.cacheHints;
   const crawlFullPath = input.crawlType === "crawl" && input.crawlScope === "path_prefix";
 
+  // Seed used to scope-check a page's `rel=canonical` before honoring it. A
+  // sitemap seed that names the sitemap document widens to the site root,
+  // mirroring how sitemap entries themselves are scoped below.
+  const scopeSeedUrl =
+    input.crawlType === "sitemap"
+      ? sitemapSeedScopeUrl(input.seedUrl, input.sitemapDiscoveredLocations)
+      : input.seedUrl;
+
   // Heartbeat between Crawlee's 60 s statistics blocks: one line per
   // PROGRESS_LOG_EVERY_PAGES handled pages (fresh or 304-unchanged).
   let handledPages = 0;
@@ -566,6 +575,9 @@ export async function runCrawl(input: CrawlRunnerInput): Promise<CrawlOutcome> {
                 return false;
               }
               if (isNonHtmlUrl(nextRequest.url)) return false;
+              // Drop tracking params / fragments so `?utm_*` variants collapse
+              // to a single fetch instead of N near-identical pages.
+              nextRequest.url = normalizeCrawlUrl(nextRequest.url);
               nextRequest.userData = {
                 ...nextRequest.userData,
                 depth: currentDepth + 1,
@@ -636,9 +648,21 @@ export async function runCrawl(input: CrawlRunnerInput): Promise<CrawlOutcome> {
         const metadata = sitemapLastmod
           ? { ...(enrichment.metadata ?? {}), sitemap: { lastmod: sitemapLastmod } }
           : enrichment.metadata;
+        // Store the page under its canonical identity so pagination and
+        // print/variant URLs the site declares equivalent collapse onto one
+        // row. The fetched `url` still drives extraction, link discovery and
+        // file-link resolution above — only the persisted identity changes.
+        const identityUrl = resolvePageIdentityUrl({
+          fetchedUrl: url,
+          canonicalUrl:
+            typeof enrichment.metadata?.canonicalUrl === "string"
+              ? enrichment.metadata.canonicalUrl
+              : null,
+          scopeSeedUrl,
+        });
         okCount += 1;
         await input.onPage?.({
-          url,
+          url: identityUrl,
           title: extracted.title,
           rawText: extracted.markdown,
           etag: responseHeaders.etag ?? null,
@@ -751,9 +775,8 @@ export async function runCrawl(input: CrawlRunnerInput): Promise<CrawlOutcome> {
       // A seed pointing at the sitemap document itself scopes to the site
       // root (sitemap part stripped) — page URLs never live under the
       // sitemap's own path, so seed-prefix scope would filter out every entry.
-      const scopeSeed = sitemapSeedScopeUrl(input.seedUrl, input.sitemapDiscoveredLocations);
       const scopedEntries = entries.filter(
-        (e) => isInSeedScope(scopeSeed, e.url) && !isNonHtmlUrl(e.url),
+        (e) => isInSeedScope(scopeSeedUrl, e.url) && !isNonHtmlUrl(e.url),
       );
       const robotAllowedEntries: typeof entries = [];
       for (const e of scopedEntries) {
