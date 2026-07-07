@@ -169,6 +169,79 @@ describe("wire fields for embedding consumers", () => {
   });
 });
 
+describe("legacy Eneo sitemap-document seed", () => {
+  // Sources created by older Eneo versions store `url` = the sitemap document
+  // itself (e.g. `https://host/sitemap.xml`). Verifies the pre-existing
+  // seed-self-sitemap handling (sitemap.ts probeSitemapStatus + scope.ts
+  // sitemapSeedScopeUrl): with NO `sitemap_urls`, Kravla must recognise the
+  // seed as the sitemap, load it, and ingest every same-host entry with the
+  // scope widened to the site root — NOT path-scoped to `/sitemap.xml` (which
+  // would filter out every real page and yield nothing). The fixture's pages
+  // sit at unrelated paths, so a naive `/sitemap.xml`-prefix scope would return
+  // zero pages; getting all of them proves the widening.
+  let legacy: FixtureServer;
+
+  beforeAll(async () => {
+    legacy = await startFixtureServer([
+      { path: "/", title: "Root", bodyHtml: "<p>Startsida.</p>" },
+      { path: "/nyheter/1", title: "Nyhet", bodyHtml: "<p>En nyhet.</p>" },
+      { path: "/dokument/a", title: "Dokument", bodyHtml: "<p>Ett dokument.</p>" },
+    ]);
+  });
+
+  afterAll(async () => {
+    await legacy.close();
+  });
+
+  it("/v1/crawls: seed=/sitemap.xml ingests every same-host entry unscoped", async () => {
+    const res = await fetch(`${service.url}/v1/crawls`, {
+      method: "POST",
+      headers: authHeaders,
+      body: JSON.stringify({
+        url: `${legacy.url}/sitemap.xml`,
+        crawl_type: "sitemap",
+        depth: 0,
+      }),
+    });
+    expect(res.status).toBe(200);
+    const events = (await res.text())
+      .trim()
+      .split("\n")
+      .map((l) => JSON.parse(l) as { type: string });
+    const pages = events.filter((e) => e.type === "page") as { page: { url: string } }[];
+    expect(pages.map((p) => p.page.url).sort()).toEqual([
+      `${legacy.url}/`,
+      `${legacy.url}/dokument/a`,
+      `${legacy.url}/nyheter/1`,
+    ]);
+    const done = events.at(-1) as { type: string; outcome: { ok_count: number } };
+    expect(done.type).toBe("done");
+    expect(done.outcome.ok_count).toBe(3);
+  });
+
+  it("/v1/preview: seed=/sitemap.xml reflects all entries as in-scope", async () => {
+    const res = await fetch(`${service.url}/v1/preview`, {
+      method: "POST",
+      headers: authHeaders,
+      body: JSON.stringify({ url: `${legacy.url}/sitemap.xml`, crawl_type: "sitemap", depth: 0 }),
+    });
+    expect(res.status).toBe(200);
+    const body = (await res.json()) as {
+      sitemap: {
+        found: boolean;
+        url_count: number;
+        total_urls_in_sitemap: number;
+        locations: string[];
+      };
+    };
+    expect(body.sitemap.found).toBe(true);
+    expect(body.sitemap.total_urls_in_sitemap).toBe(3);
+    // url_count === total proves nothing was dropped by path-scoping.
+    expect(body.sitemap.url_count).toBe(3);
+    expect(body.sitemap.locations.some((loc) => loc.endsWith("/sitemap.xml"))).toBe(true);
+  });
+});
+
 describe("stream mode", () => {
   it("streams NDJSON events and a terminal done", async () => {
     const res = await fetch(`${service.url}/v1/crawls`, {
