@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Runner unit tests. Stands up a tiny in-process HTTP server returning the
  * captured Sundsvall fixture and asserts the full CrawlOutcome shape — the

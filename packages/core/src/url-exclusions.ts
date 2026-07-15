@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Crawl-link exclusions for same-site navigation that is rarely useful to
  * index. Patterns match `pathname + search` and intentionally use a tiny

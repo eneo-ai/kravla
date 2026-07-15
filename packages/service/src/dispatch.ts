@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Maps a validated wire request onto the library's streaming-callback seam
  * and routes by crawl_type: `feed` and
@@ -15,7 +15,7 @@ import {
   type CrawlOutcome,
   type CrawlRunnerInput,
   type Logger,
-} from "@oddly-even/kravla";
+} from "kravla";
 import type { ServiceConfig } from "./config";
 import type { CrawlRequest } from "./schema";
 import { outcomeToWire, pageToWire, robotsToWire, type CrawlEvent, type DoneEvent } from "./wire";

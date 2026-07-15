@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Pure HTML → overview-page record parser. Mirror of `parser.ts` for the
  * service catalog: the caller fetches the HTML and feeds it in.

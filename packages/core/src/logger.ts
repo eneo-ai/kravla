@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Minimal structural logging interface. A pino instance satisfies it as-is
  * (`logger.child({...})` included), so callers inject their pino logger

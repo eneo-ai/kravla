@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * (Re)download the fixture corpus from the URLs in urls.ts into ./fixtures.
  * See README.md. Run: `bun run extraction:fidelity:fetch`
@@ -15,7 +15,7 @@ import { FIXTURE_URLS } from "./urls";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const FIXTURES = join(HERE, "fixtures");
-const UA = "kravla/extraction-fidelity (+https://github.com/Oddly-Even/kravla)";
+const UA = "kravla/extraction-fidelity (+https://github.com/eneo-ai/kravla)";
 const TIMEOUT_MS = 12_000;
 
 /**

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Feed runner (`runFeedAsStreaming`) over a fixture HTTP server.
  *

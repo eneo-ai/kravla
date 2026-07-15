@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Open ePlatform crawler entry point. Shape mirrors the generic
  * `runCrawl(input) → CrawlOutcome` in `../crawl-runner.ts` so

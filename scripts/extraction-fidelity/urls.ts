@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Fixture <-> source-URL mapping. The URL matters because every candidate
  * resolves relative links/images against it, so each fixture must be paired

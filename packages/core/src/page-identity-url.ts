@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Decides the stable identity URL a crawled page is stored under, so that
  * the same content fetched through several URLs collapses to one row instead

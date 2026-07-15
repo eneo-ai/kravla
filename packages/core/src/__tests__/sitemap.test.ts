@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Sitemap loader tests, fixture-server style. We're regression-testing
  * against the HTTP/2 bug that the old Crawlee-based loader silently

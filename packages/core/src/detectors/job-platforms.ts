@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Recruitment ATS family detector — Varbi, ReachMee, Visma Recruit,
  * Offentliga Jobb, Teamtailor, EasyCruit. Their hosts get linked from

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * End-to-end service tests: real HTTP server on an ephemeral port, real
  * Crawlee runs against the in-process fixture server — no external network.
@@ -6,7 +6,7 @@
 import { createServer, type Server } from "node:http";
 import type { AddressInfo } from "node:net";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { noopLogger } from "@oddly-even/kravla";
+import { noopLogger } from "kravla";
 import { createApp } from "../../src/app";
 import type { ServiceConfig } from "../../src/config";
 import { signBody } from "../../src/webhook";

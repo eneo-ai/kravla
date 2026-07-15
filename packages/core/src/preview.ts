@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Dry-run / preview for a candidate CrawlSource. Operator gets a count
  * estimate without committing the source to the DB.

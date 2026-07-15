@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Detector registry + runner. Called from `crawl-runner.ts`
  * `requestHandler` on every successfully fetched page so the platforms

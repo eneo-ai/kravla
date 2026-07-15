@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Extraction candidates for the fidelity harness. See README.md for what each
  * candidate is and how to read the comparison.

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 import { describe, it, expect } from "vitest";
 import * as cheerio from "cheerio";
 import headMeta from "../head-meta";

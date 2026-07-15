@@ -1,16 +1,17 @@
 {
-  "name": "@oddly-even/kravla",
-  "version": "0.3.1",
+  "name": "kravla",
+  "version": "0.4.0",
   "description": "Polite web crawler — Crawlee-based page crawling, sitemap/RSS ingestion, Open ePlatform e-service harvesting, platform detection and content extraction.",
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "type": "module",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Oddly-Even/kravla.git",
+    "url": "git+https://github.com/eneo-ai/kravla.git",
     "directory": "packages/core"
   },
-  "homepage": "https://github.com/Oddly-Even/kravla#readme",
-  "bugs": "https://github.com/Oddly-Even/kravla/issues",
+  "homepage": "https://github.com/eneo-ai/kravla#readme",
+  "bugs": "https://github.com/eneo-ai/kravla/issues",
   "keywords": [
     "crawler",
     "crawlee",
@@ -52,8 +53,5 @@
   },
   "engines": {
     "node": ">=20"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

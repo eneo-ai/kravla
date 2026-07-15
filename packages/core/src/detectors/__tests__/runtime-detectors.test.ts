@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Unit tests for each runtime detector. Same input shape as the
  * crawler runtime + the discovery script — verify that fingerprints

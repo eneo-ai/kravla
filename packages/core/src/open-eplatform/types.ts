@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Structured per-e-service metadata produced by the Open ePlatform crawler.
  *

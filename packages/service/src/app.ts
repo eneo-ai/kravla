@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * The HTTP surface, framework-free on node:http so it runs identically
  * under Bun, Node, and vitest. `createApp` returns a plain request handler
@@ -12,7 +12,7 @@
  *   POST   /v1/preview       — dry-run probe of a candidate source
  */
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { previewCrawlSource, type Logger } from "@oddly-even/kravla";
+import { previewCrawlSource, type Logger } from "kravla";
 import type { ZodType } from "zod";
 import type { ServiceConfig } from "./config";
 import { runCrawlJob } from "./dispatch";

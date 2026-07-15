@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Per-page enrichers run inside the generic Crawlee path to extract
  * structured signal that Readability's main-content pass throws away —

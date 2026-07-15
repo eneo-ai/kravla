@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Pure HTML → e-service record parser for Open ePlatform portals. No I/O —
  * the caller fetches the HTML and feeds it in, which keeps the parser unit-

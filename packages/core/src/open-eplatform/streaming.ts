@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Adapter that exposes the Open ePlatform runner under the streaming
  * `runCrawl(input) → CrawlOutcome` contract `processCrawlRun` now expects.

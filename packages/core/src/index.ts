@@ -1,6 +1,6 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
- * @oddly-even/kravla — polite web crawler with sitemap/RSS ingestion,
+ * kravla — polite web crawler with sitemap/RSS ingestion,
  * platform detection and content extraction.
  *
  * Server-only entry point (pulls in Crawlee).

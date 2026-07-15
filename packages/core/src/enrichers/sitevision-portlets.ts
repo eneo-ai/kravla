@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Sitevision-specific enricher. Self-gates on the presence of any
  * `sv-*-portlet` class — pages without one no-op immediately so we

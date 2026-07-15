@@ -7,13 +7,13 @@ on:
 permissions:
   contents: read
   packages: write
-  id-token: write # npm provenance
 
 jobs:
   image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
       - uses: docker/login-action@v3
         with:
@@ -23,7 +23,7 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: ghcr.io/oddly-even/kravla
+          images: ghcr.io/eneo-ai/kravla
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
@@ -31,33 +31,6 @@ jobs:
         with:
           context: .
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-  npm:
-    runs-on: ubuntu-latest
-    # Auth is npm Trusted Publishing (OIDC) — no token, no secret. Gated off
-    # until the trusted publisher is configured on npmjs (package settings).
-    if: ${{ vars.NPM_PUBLISH_ENABLED == 'true' }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      # No registry-url here: setup-node's registry-url writes an .npmrc
-      # auth stanza + exports a placeholder NODE_AUTH_TOKEN, which makes npm
-      # prefer token auth over OIDC trusted publishing (publish then 404s).
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      # OIDC trusted publishing needs npm >= 11.5.1; node 22 ships an older one.
-      - run: npm install -g npm@latest
-      - run: bun install --frozen-lockfile
-      - run: bun run build
-      # Prereleases (0.1.0-alpha.N) land on the `next` dist-tag; stable on `latest`.
-      - name: Publish @oddly-even/kravla
-        working-directory: packages/core
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          if [[ "$VERSION" == *-* ]]; then TAG=next; else TAG=latest; fi
-          npm publish --provenance --access public --tag "$TAG"

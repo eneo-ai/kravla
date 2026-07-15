@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Runtime platform detectors. Same logic that powered the standalone
  * discovery script (`scripts/detect-municipal-services.ts`) — promoted

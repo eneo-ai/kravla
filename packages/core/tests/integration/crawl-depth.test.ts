@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { runCrawl } from "../../src/crawl-runner";
 import { startFixtureServer, type FixtureServer } from "../helpers/fixture-server";

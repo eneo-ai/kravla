@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * In-memory job registry. Deliberately no persistence or queue: a restart
  * forgets jobs and callers re-submit (stateful retries/schedules belong to

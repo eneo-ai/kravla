@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Enricher pipeline entry point. Runs all registered enrichers over the
  * same loaded cheerio instance and merges their output into a single

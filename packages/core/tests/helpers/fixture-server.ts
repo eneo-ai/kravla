@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Spawns a localhost HTTP server returning fixture HTML so tests can drive
  * Crawlee against a known input without hitting the real network. The

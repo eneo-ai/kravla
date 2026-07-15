@@ -1,16 +1,10 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Library shape ↔ wire shape mappers. Top-level fields are snake_cased;
  * `metadata` and `extra_chunks` payloads pass through verbatim (they are
  * provider-defined and consumers narrow on `metadata.provider`).
  */
-import type {
-  CrawlOutcome,
-  CrawlPage,
-  FailedUrl,
-  PreviewResult,
-  RobotsSnapshot,
-} from "@oddly-even/kravla";
+import type { CrawlOutcome, CrawlPage, FailedUrl, PreviewResult, RobotsSnapshot } from "kravla";
 
 export type CrawlEvent =
   | { type: "robots"; robots: ReturnType<typeof robotsToWire> }

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Thin wrapper around Crawlee `CheerioCrawler` for Phase 1.
  *

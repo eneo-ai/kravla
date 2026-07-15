@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 import { createServer } from "node:http";
 import pino from "pino";
 import { loadConfigFromEnv } from "./config";

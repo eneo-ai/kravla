@@ -5,15 +5,18 @@ e-service harvesting, platform detection (Sitevision, EpiServer, Netpublicator, 
 Readability-based content extraction. Works on any site; battle-tested against hundreds of real
 Swedish municipal hosts and their CDN quirks.
 
-| Package                                          | What it is                                                                 |
-| ------------------------------------------------ | -------------------------------------------------------------------------- |
-| [`@oddly-even/kravla`](packages/core)            | The crawler library — embed it in-process (Node ≥ 20, ESM).                |
-| [`@oddly-even/kravla-service`](packages/service) | Headless HTTP wrapper — NDJSON streaming + signed webhooks, one container. |
+| Package                              | What it is                                                                 |
+| ------------------------------------ | -------------------------------------------------------------------------- |
+| [`kravla`](packages/core)            | The crawler library — embed it in-process (Node ≥ 20, ESM).                |
+| [`kravla-service`](packages/service) | Headless HTTP wrapper — NDJSON streaming + signed webhooks, one container. |
+
+Neither package is published to a registry — the release artifact is the container image
+[`ghcr.io/eneo-ai/kravla`](https://github.com/eneo-ai/kravla/pkgs/container/kravla).
 
 ## Library quick start
 
 ```ts
-import { runCrawl } from "@oddly-even/kravla";
+import { runCrawl } from "kravla";
 
 const outcome = await runCrawl({
   seedUrl: "https://www.example.se",
@@ -58,7 +61,7 @@ CRAWLER_API_KEY=changeme bun packages/service/src/index.ts
 # container
 docker build -t kravla-service .
 docker run -p 8080:8080 -e CRAWLER_API_KEY=changeme kravla-service
-# (or pull ghcr.io/oddly-even/kravla once a release is tagged)
+# (or pull ghcr.io/eneo-ai/kravla once a release is tagged)
 ```
 
 Then stream a crawl as NDJSON:
@@ -82,7 +85,7 @@ and the full env-var reference are documented in
 
 ```sh
 bun install
-bun run build   # required first: the service imports @oddly-even/kravla from core's dist
+bun run build   # required first: the service imports kravla from core's dist
 bun run typecheck && bun run lint && bun run test
 ```
 
@@ -97,4 +100,9 @@ candidates against captured fixtures.
 
 ## License
 
-[MIT](LICENSE) © Oddly Even AB
+[AGPL-3.0-only](LICENSE) © 2026 Oddly Even AB and contributors.
+
+kravla was donated to the [eneo-ai](https://github.com/eneo-ai) organization by
+[Oddly Even AB](https://github.com/Oddly-Even). Versions up to and including 0.3.1 were
+released under the MIT license from [Oddly-Even/kravla](https://github.com/Oddly-Even/kravla);
+that history (and its MIT licensing) is preserved in this repository's tags `v0.1.0`–`v0.3.0`.

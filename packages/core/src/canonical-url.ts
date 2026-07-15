@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Resolve the canonical origin for a user-entered source URL by following
  * HTTP redirects. Many Swedish muni hosts redirect apex → www (or vice

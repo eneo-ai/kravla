@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Extracts publish/modify timestamps from visible `<time>` elements —
  * the byline dates ("Publicerad: …", "Senast uppdaterad: …") that pages

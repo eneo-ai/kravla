@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Infracontrol Online (felanmälan) detector. The form is an iframe
  * hosted by `infracontrol.com`; munis embed it directly or behind a

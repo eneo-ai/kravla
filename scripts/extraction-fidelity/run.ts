@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Extraction fidelity harness — runs every fixture through each candidate and
  * writes side-by-side Markdown to ./out. See README.md for the full story.

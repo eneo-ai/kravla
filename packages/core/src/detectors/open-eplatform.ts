@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Open ePlatform (Nordic Peak) detector. Reuses the runtime probe
  * function — `probePortal` looks at meta hints and `section[id^=flowtype_]`

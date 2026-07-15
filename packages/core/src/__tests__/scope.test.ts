@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Scope-resolution tests, centered on the legacy-Eneo seed convention:
  * sitemap sources stored with the sitemap document itself as the seed

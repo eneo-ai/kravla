@@ -1,6 +1,5 @@
 {
   "lockfileVersion": 1,
-  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "kravla-monorepo",
@@ -15,8 +14,8 @@
       },
     },
     "packages/core": {
-      "name": "@oddly-even/kravla",
-      "version": "0.1.0-alpha.0",
+      "name": "kravla",
+      "version": "0.3.1",
       "dependencies": {
         "@crawlee/cheerio": "^3.16.0",
         "@crawlee/core": "^3.16.0",
@@ -36,10 +35,10 @@
       },
     },
     "packages/service": {
-      "name": "@oddly-even/kravla-service",
-      "version": "0.1.0-alpha.0",
+      "name": "kravla-service",
+      "version": "0.3.1",
       "dependencies": {
-        "@oddly-even/kravla": "workspace:*",
+        "kravla": "workspace:*",
         "pino": "^10.3.1",
         "zod": "^4.4.3",
       },
@@ -180,10 +179,6 @@
     "@mozilla/readability": ["@mozilla/readability@0.6.0", "", {}, "sha512-juG5VWh4qAivzTAeMzvY9xs9HY5rAcr2E4I7tiSSCokRFi7XIZCAu92ZkSTsIj1OPceCifL3cpfteP3pDT9/QQ=="],
 
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@1.1.5", "", { "dependencies": { "@tybys/wasm-util": "^0.10.2" }, "peerDependencies": { "@emnapi/core": "^1.7.1", "@emnapi/runtime": "^1.7.1" } }, "sha512-AWPoBRJ9tsnVhor4sjO7rkni+7p+2IAEFj6cx06UgP10jkQHqay/36uRV/bFkgrh18D9vb4cr8Q0Pthskgzy+Q=="],
-
-    "@oddly-even/kravla": ["@oddly-even/kravla@workspace:packages/core"],
-
-    "@oddly-even/kravla-service": ["@oddly-even/kravla-service@workspace:packages/service"],
 
     "@oxc-project/types": ["@oxc-project/types@0.133.0", "", {}, "sha512-KzkdCd6Uxqnf6l3HOw1xfatAlUURA0g14cvBYFyJ5SaNOQbOUvBr9PKArcPcrNIeRsBdgcUzOGrhKveVpvOIGA=="],
 
@@ -568,6 +563,10 @@
     "jsonfile": ["jsonfile@6.2.1", "", { "dependencies": { "universalify": "^2.0.0" }, "optionalDependencies": { "graceful-fs": "^4.1.6" } }, "sha512-zwOTdL3rFQ/lRdBnntKVOX6k5cKJwEc1HdilT71BWEu7J41gXIB2MRp+vxduPSwZJPWBxEzv4yH1wYLJGUHX4Q=="],
 
     "keyv": ["keyv@4.5.4", "", { "dependencies": { "json-buffer": "3.0.1" } }, "sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw=="],
+
+    "kravla": ["kravla@workspace:packages/core"],
+
+    "kravla-service": ["kravla-service@workspace:packages/service"],
 
     "levn": ["levn@0.4.1", "", { "dependencies": { "prelude-ls": "^1.2.1", "type-check": "~0.4.0" } }, "sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ=="],
 

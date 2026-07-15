@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Feed fetch + parse (RSS 2.0 / RSS 1.0 / Atom).
  *

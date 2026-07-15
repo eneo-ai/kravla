@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 import type { Logger } from "./logger";
 
 /**
@@ -9,7 +9,7 @@ import type { Logger } from "./logger";
  */
 export const DEFAULT_USER_AGENT = "kravla";
 
-export const USER_AGENT_CONTACT_URL = "https://github.com/Oddly-Even/kravla";
+export const USER_AGENT_CONTACT_URL = "https://github.com/eneo-ai/kravla";
 
 /** Options accepted by every standalone helper (robots, sitemap, feed, …). */
 export interface CrawlerRuntimeOptions {

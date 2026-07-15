@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Public library platform detector. Most Swedish municipal libraries
  * run Axiell Arena / Quria / Bibblix / Book-it. Catches references in

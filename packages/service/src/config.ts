@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Environment configuration. Single-tenant headless infra: one static API
  * key, one process, no persistence. Every per-crawl knob can also be set

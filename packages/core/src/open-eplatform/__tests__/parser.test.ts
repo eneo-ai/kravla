@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Unit tests for the Open ePlatform HTML parser. Driven from a captured
  * fixture so the assertions read like a contract against real portal HTML

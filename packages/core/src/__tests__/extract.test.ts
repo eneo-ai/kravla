@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * extractContent — focus on image URL handling. Crawled content embeds image
  * URLs as-is (no download); relative `src` values must be expanded to absolute

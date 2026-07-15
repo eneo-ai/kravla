@@ -14,7 +14,7 @@ jobs:
         with:
           bun-version: latest
       - run: bun install --frozen-lockfile
-      # Build first: the service package resolves @oddly-even/kravla types
+      # Build first: the service package resolves kravla types
       # from packages/core/dist via the exports map.
       - run: bun run build
       - run: bun run typecheck

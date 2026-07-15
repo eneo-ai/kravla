@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Extracts structured signal from the page's `<head>` — the slice
  * Readability throws away. Covers OpenGraph + `article:*` (well-populated

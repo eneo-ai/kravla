@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Schema.org JSON-LD walker. Pulls structured fields out of every
  * `<script type="application/ld+json">` block on the page — the recon

@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Wire schemas for the v1 API. snake_case on the wire (Python-friendly),
  * camelCase internally.

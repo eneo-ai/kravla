@@ -1,20 +1,20 @@
-# @oddly-even/kravla-service
+# kravla-service
 
-Headless HTTP wrapper around [`@oddly-even/kravla`](../core). One container, one static API key,
+Headless HTTP wrapper around [`kravla`](../core). One container, one static API key,
 HTTP in / pages out. No persistence or queue — a restart forgets running jobs and callers
 re-submit; retries and scheduling belong to the consumer.
 
 ## Run
 
 ```sh
-# local — `bun run build` first: the service imports @oddly-even/kravla from core's dist,
+# local — `bun run build` first: the service imports kravla from core's dist,
 # so a fresh clone (or any packages/core/src change) needs a rebuild to take effect
 CRAWLER_API_KEY=changeme bun packages/service/src/index.ts
 # or, auto-restarting on service-src changes and core rebuilds:
 cd packages/service && CRAWLER_API_KEY=changeme bun run dev
 
 # container
-docker run -p 8080:8080 -e CRAWLER_API_KEY=changeme ghcr.io/oddly-even/kravla
+docker run -p 8080:8080 -e CRAWLER_API_KEY=changeme ghcr.io/eneo-ai/kravla
 ```
 
 | Env var                               | Default  | Meaning                                                       |

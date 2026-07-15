@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Unit tests for the Open ePlatform overview-page parser, driven from
  * captured fixtures for three real services across two municipalities:

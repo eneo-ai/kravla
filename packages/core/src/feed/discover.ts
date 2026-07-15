@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * RSS/Atom autodiscovery — find the feed a page advertises via the standard
  * `<link rel="alternate" type="application/rss+xml">` (or `atom+xml`) head tag.

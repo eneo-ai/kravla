@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 import robotsParser from "robots-parser";
 import { noopLogger } from "./logger";
 import { DEFAULT_USER_AGENT, type CrawlerRuntimeOptions } from "./options";

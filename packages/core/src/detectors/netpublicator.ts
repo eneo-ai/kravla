@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: AGPL-3.0-only
 /**
  * Netpublicator detector. The vendor's portal is hosted on
  * `web.netpublicator.com`; munis link to it from a "möten och
