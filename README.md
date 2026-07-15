@@ -100,7 +100,9 @@ candidates against captured fixtures.
 
 ## License
 
-[AGPL-3.0-only](LICENSE) © 2026 Oddly Even AB and contributors.
+[AGPL-3.0-only](LICENSE)
+
+Copyright (C) 2026 Sundsvall Municipality & Ånge Municipality
 
 kravla was donated to the [eneo-ai](https://github.com/eneo-ai) organization by
 [Oddly Even AB](https://github.com/Oddly-Even). Versions up to and including 0.3.1 were
